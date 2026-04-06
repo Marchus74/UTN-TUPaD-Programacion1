@@ -1,5 +1,4 @@
-print ("TRABAJO PRACTICO N° 3 ")
-
+print ("TRABAJO PRACTICO N° 5 - ORDENAMIENTO DE LISTAS Y MATRICES\n")
 
 while True:
     print("""
@@ -13,14 +12,22 @@ Ejercicio 6: Invertir una lista
 Ejercicio 7: Matriz de temperaturas
 Ejercicio 8: Matriz de estudiantes y notas
 Ejercicio 9: Tablero de Ta TE Ti
+Ejercicio 10: Matriz de ventas de productos
+Ejercicio 11: Búsqueda de alumno en lista
+Ejercicio 12: Ordenamiento de números ingresados por el usuario
+Ejercicio 13: Análisis de puntajes de jugadores
 """)
-
+    
     option = input("Elija un ejercicio del 1 al 10, o 0 para salir: ")
 
     match option:
         case "1":
+            print("\n Ejercicio 1: Ejercicio de Promedio de Notas y Ordenamiento\n".upper()) 
+            # lista de notas
             notas=[7,6,8,9,10,5,4,7,8,9]
+            
             print (notas)
+            
             promedio = 0
             for nota in notas:
                 promedio += nota
@@ -28,7 +35,7 @@ Ejercicio 9: Tablero de Ta TE Ti
             print(f"El promedio es: {promedio}")
         
         # para este ejercicio eligo insertion sort, 
-        # por se estable y eficiente para listas pequeñas, como la de notas.
+        # por ser estable y eficiente para listas pequeñas, como la de notas.
 
             def insertion_sort(notas):
                 for i in range(1, len(notas)):
@@ -40,13 +47,20 @@ Ejercicio 9: Tablero de Ta TE Ti
                     notas[j + 1] = actual
                 
                 return notas
+            
             notas_ordenadas = insertion_sort(notas)
+            #salida a consola
             print("Notas ordenadas de menor a mayor:")
             print(f"La nota mas baja fue: {notas_ordenadas[0]} y la las alt: {notas_ordenadas[9]}") 
             print(notas_ordenadas) 
+            
             print("\n#######################################################\n")  
     
         case "2":
+            
+            print("\n Ejercicio 2: Lista de productos con orden y eliminación\n".upper())
+            
+            # Variables
             lista_productos = []
             
             while len (lista_productos) < 5: #Cuanbdo ingrese el quinto termina el buble.
@@ -87,13 +101,17 @@ Ejercicio 9: Tablero de Ta TE Ti
             print(f"Producto '{borrar_producto}' eliminado correctamente.") 
             print("\nLista actualizada:\n")
             print(lista_productos)
+            
             print("\n#######################################################\n")        
 
         case "3":
-            #Importo Rndom
+            
+            print("\n Ejercicio 3: Lista de pares e Impares\n".upper()) 
+            #Importo Random
             
             import random
             #creo la lista de numeros aleatorios del 1 al 100, con 15 numeros enteros.
+            
             lista_numeros = [random.randint(1, 100) for _ in range(15)]
             print(lista_numeros)
 
@@ -112,9 +130,12 @@ Ejercicio 9: Tablero de Ta TE Ti
             print("\nNúmeros impares:")
             print(lista_impares)    
             print(f"cantidad de numeros impares: {len(lista_impares)}")
+            
             print("\n#######################################################\n")
 
         case "4":
+            
+            print("\n Ejercicio 4: Lista sin repetidos\n".upper()) 
             
             list_numeros= [1,3,5,3,7,1,9,5,3]
             list_numeros_sin_repetidos = []
@@ -125,10 +146,12 @@ Ejercicio 9: Tablero de Ta TE Ti
                 list_numeros_sin_repetidos.append(nro) 
             
             print(list_numeros_sin_repetidos)
+            
             print("\n#######################################################\n")
 
         case "5":
             
+            print("\n Ejercicio 1: Ejercicio de Promedio de Notas y Ordenamiento\n".upper())
             
             estudiantes = ["Juan", "María", "Pedro", "Ana", "Luis"]
             
@@ -184,21 +207,27 @@ Ejercicio 9: Tablero de Ta TE Ti
             print("\nLista actualizada de estudiantes:\n")
             print(estudiantes)
 
-            ## ATENCION SI DA EL TIEMPO MEJORAR EL CODIGO
+            
             print("\n#######################################################\n")
 
 
         case "6":
             
+            print("\n Ejercicio 6: Invertir una lista\n".upper())
+
             list_numeros= [4,8,9,7,5,3]
             print(list_numeros)
             
             # invierto la lista
             list_numeros.reverse() 
             print(list_numeros)
+            
             print("\n#######################################################\n")
         
         case "7":
+
+            print("\n Ejercicio 7: Matriz de temperaturas\n".upper())
+            
             #Una matriz es una lista de listas
             #Cada elemento de la matriz es una fila, y cada elemento de la fila es una columna.
             #Creo la matriz con las temperaturas minimas y maximas de una semana.
@@ -213,7 +242,9 @@ Ejercicio 9: Tablero de Ta TE Ti
                 [13, 23]
             ]
 
-            lista_nombres_dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"] 
+            # Creo esta lista como una constante, los dias de la semana no cambian de nombre.
+            #Creo las constantes
+            NOMBRES_DIAS = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"] 
             
             #creo las variables
             promedio_minima_temp= 0
@@ -246,14 +277,16 @@ Ejercicio 9: Tablero de Ta TE Ti
                 #Verifico si es la mayor amplitud
                 if amplitud_termica > mayor_amplitud_termica:
                     mayor_amplitud_termica = amplitud_termica
-                    dia_mayor_amplitud = lista_nombres_dias[i]
+                    dia_mayor_amplitud = NOMBRES_DIAS [i]
 
                     
             print(f"Mayor amplitud térmica: {mayor_amplitud_termica}")
             print(f"Mayor amplitud térmica fue el dia: {dia_mayor_amplitud}")
+            
             print("\n#######################################################\n")
 
         case "8":
+            print("\n Ejercicio 8: Matriz de estudiantes y notas\n".upper())
 
             matriz_estudiantes_notas = [
                 ["Juan", 7, 8, 9],
@@ -287,64 +320,222 @@ Ejercicio 9: Tablero de Ta TE Ti
                 Materia 2: {promedio_materia_2}
                 Materia_3: {promedio_materia_3}
                 """)
+            print("\n#######################################################\n")
+        
         case "9":
+
+            print("\n Ejercicio 9: Tablero de Ta TE Ti\n".upper())
+
+            
             #Creo el tablero Basico
             tablero = [
                 ["-", "-", "-"],
                 ["-", "-", "-"],
                 ["-", "-", "-"]
             ]
-            
-            #Solicito al usuario que ingrese la fila
-            fila= int(input("Ingrese la fila (0, 1, 2): "))
-            # Verifico el dato
-            while fila < 0 or fila > 2:
-                print("Error: Ingrese un número válido para la fila (0, 1, 2).")
-                fila = int(input("Ingrese la fila (0, 1, 2): "))
-            
-            #solicito al usuario que ingrese la columna
-            columna = int(input("Ingrese la columna (0, 1, 2): "))
-            # Verifico el dato
-            while columna < 0 or columna > 2:
-                print("Error: Ingrese un número válido para la columna (0, 1, 2).")
-                columna = int(input("Ingrese la columna (0, 1, 2): "))  
-            
-            #Solicito al usuario que ingrese el valor (X o O)   
-            valor= input("Ingrese el valor (X o O): ").upper()
-            
-            #verifico el dato
-            while valor != "X" and valor != "O":
-                print("Error: Ingrese un valor válido (X o O).")
-                valor = input("Ingrese el valor (X o O): ").upper() 
-            
-            #Actualizo el tablero con el valor ingresado por el usuario
-            tablero[fila][columna] = valor
-            
-            #Imprimo el tablero actualizado
-            print("\nTablero actualizado:\n")
-            print("------------------------")
-            print(tablero)
-            print("")
+                        
+                        
+            # Variable de fin de Juego
+            final_de_juego = False
 
-            #Como no me gusta la representacion del tablero, en pantalla
+            
+            while not final_de_juego:
+                
+                #solicito al usuario que ingrese la fila
+                fila= int(input("Ingrese la fila (0, 1, 2): "))
+                # Verifico el dato
+                while fila < 0 or fila > 2:
+                    print("Error: Ingrese un número válido para la fila (0, 1, 2).")
+                    fila = int(input("Ingrese la fila (0, 1, 2): "))
+                
+                #solicito al usuario que ingrese la columna
+                columna = int(input("Ingrese la columna (0, 1, 2): "))
+                # Verifico el dato
+                while columna < 0 or columna > 2:
+                    print("Error: Ingrese un número válido para la columna (0, 1, 2).")
+                    columna = int(input("Ingrese la columna (0, 1, 2): "))  
+                
+                #Solicito al usuario que ingrese el valor (X o O)   
+                valor= input("Ingrese el valor (X o O): ").upper()
+                
+                #verifico el dato
+                while valor != "X" and valor != "O":
+                    print("Error: Ingrese un valor válido (X o O).")
+                    valor = input("Ingrese el valor (X o O): ").upper() 
+                
+                #Verifico la posicion del tablero con el valor ingresado por el usuario
+                
+                if tablero[fila][columna] != "-":
+                    print("Error: La posición ya está ocupada. Intente nuevamente.")
+                    continue
+                    # sale por fin de bucle y vuelve a solicitar al usuario que ingrese la fila, columna y valor.
+                else:
+                    #Actualizo el tablero con el valor ingresado por el usuario            
+                    tablero[fila][columna] = valor
+                
+                #Imprimo el tablero actualizado
+                print("\nTablero actualizado:\n")
+                print("------------------------")
+                print(tablero)
+                print("")
+
+            #Como no me gusta como queda la representacion del tablero, en pantalla
             #Use esta otra forma
             # Donde el metodo .join() sirve para unir los elementos 
             # de la lista con un separador, en este caso " | " 
+            # de todas formas se imprime ambas opciones.          
             
-            for fila in tablero:
+                for fila in tablero:
+                    
+                    print(" | ".join(fila))
                 
-                print(" | ".join(fila))
+                terminar= input ( "ingrese C, para continuar y T para terminar el juego:" )
+
+                #verifico el dato
+                while terminar.upper() != "C" and terminar.upper() != "T":
+                    print("Error: Ingrese 'C' para continuar o 'T' para terminar el juego.")
+                    terminar = input("Ingrese C, para continuar y T para terminar el juego: ")  
+                
+                # Cambio el valor de verdad para terminar el juego
+                
+                if terminar.upper() == "T":
+                    final_de_juego = True
             
+            print("\nGracias por jugar al Ta TE Ti!\n")    
             
+            print("\n#######################################################\n")            
+        
         case "10":
-            pass
+
+            print("\n Ejercicio 10: Matriz de ventas de productos\n".upper())
+
+            productos = ["producto1", "producto2", "producto3", "producto4"]
+            
+            productos_dias = [
+                [5,3,7,4],
+                [6,8,2,9],
+                [1,4,5,3],
+                [7,2,8,6],
+                [3,9,1,5],
+                [8,1,4,2],
+                [2,5,6,8]
+            ]
+
+            dias = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"]
+
+            total_productos_vendidos = [0,0,0,0]
+            ventas_totales_dias = []
+
+            # Total por producto
+            for fila in productos_dias:
+                for i in range(len(fila)):
+                    total_productos_vendidos[i] += fila[i]
+
+            # Mostrar total por producto
+            for i in range(len(productos)):
+                print(f"{productos[i]} vendidos: {total_productos_vendidos[i]}")
+
+            # Total por día
+            for fila in productos_dias:
+                ventas_totales_dias.append(sum(fila))
+
+            # Mostrar total por día
+            for i in range(len(dias)):
+                print(f"Total de ventas del día {dias[i]}: {ventas_totales_dias[i]}")
+
+            print(ventas_totales_dias)
+
+            # El día con más ventas
+            max_valor = ventas_totales_dias[0]
+            max_indice = 0
+
+            for i in range(len(ventas_totales_dias)):
+                if ventas_totales_dias[i] > max_valor:
+                    max_valor = ventas_totales_dias[i]
+                    max_indice = i
+
+            print(f"El día de mayor ventas fue: {dias[max_indice]}")
+
+            # El producto más vendido
+            max_producto = total_productos_vendidos[0]
+            max_indice_producto = 0
+
+            for i in range(len(total_productos_vendidos)):
+                if total_productos_vendidos[i] > max_producto:
+                    max_producto = total_productos_vendidos[i]
+                    max_indice_producto = i
+
+            print(f"El producto más vendido fue: {productos[max_indice_producto]}\n")
+
+            print ("\n#######################################################\n")
+        
         case "11":
-            pass
+
+            print("\n Ejercicio 11: Búsqueda de alumno en lista\n".upper())
+
+            lista_estudiantes = ["Juan", "María", "Pedro", "Ana", "Luis"]
+
+            nombre = input("Ingrese el nombre del alumno a buscar: ")
+
+            while not nombre.isalpha():
+                print("Error: Debe ingresar un nombre válido.")
+                nombre = input("Ingrese el nombre del alumno a buscar: ")
+
+            for i in range(len(lista_estudiantes)):
+                if lista_estudiantes[i].lower() == nombre.lower():
+                    print(f"El alumno '{nombre}' se encuentra en la lista. Posición: {i}")
+                    break
+            else:
+                print(f"El alumno '{nombre}' no se encuentra en la lista.")
+
+            print("\n#######################################################\n")
+
         case "12":
-            pass
+
+            print("\n Ejercicio 12: Ordenamiento de números ingresados por el usuario\n".upper())
+            
+            numeros = []
+            
+            for i in range(8):
+                valor = input(f"Ingrese el número : ")
+                        
+                while not valor.isdigit():
+                    print("Error: debe ingresar un número entero válido.")
+                    valor = input(f"Ingrese el número : ")
+                
+                numeros.append(int(valor))
+                
+            # Mostrar lista original
+            print("Lista original:", numeros)
+
+            # Ordenada de menor a mayor
+            print("Ordenada de menor a mayor:", sorted(numeros))
+
+            # Ordenada de mayor a menor
+            print("Ordenada de mayor a menor:", sorted(numeros, reverse=True))
+
+            print("\n#######################################################\n")
+
         case "13":
-            pass
+            
+            print("\n Ejercicio 13: Análisis de puntajes de jugadores\n".upper())
+            
+            puntajes = [450, 1200, 875, 990, 300, 1500, 640] 
+
+            puntajes_ordenados = sorted(puntajes)
+            
+            print(f"\nEl Puntajes mayor fue: {puntajes_ordenados[len(puntajes_ordenados)-1]}\n")
+            print(f"El Puntajes menor fue: {puntajes_ordenados[0]}")
+
+            for i in range(len(puntajes_ordenados)):
+                if puntajes_ordenados[i] == 990:
+                    print(f"\nEl Puntajes 990 se encuentra en la posición: {i}\n")
+                    break
+            
+            print("\n#######################################################\n")
+
         case "0":
+
             break
         case _:
             print("Ingreso un numero invalido")
